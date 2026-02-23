@@ -1,0 +1,109 @@
+/* How It Works Section */
+.section {
+    background: #ffffff; /* Light grey background */
+    padding: 20px 20px;
+    text-align: center;
+max-height:auto;
+margin-top: 20px;
+
+}
+
+.section h2 {
+    font-size: 36px;
+    color: #222;
+    margin-bottom: 15px;
+    font-weight: 700;
+    position: relative;
+    color: #1c64a2;
+}
+
+.section h2::after {
+    content: "";
+    width: 60px;
+    height: 3px;
+    background: #7ba1c3; /* accent color */
+    display: block;
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+.section p {
+    font-size: 18px;
+    max-width: 800px;
+    margin: 10px auto;
+    color: #555;
+    color: #1c64a2;
+    margin-bottom: 20px;
+}
+
+/* Icons Grid */
+.section .icons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    justify-items: center;
+    
+}
+
+/* Modern card style */
+.section .icon-box {
+    background: linear-gradient(150deg, #e9fcd4, #bfdcff); /* subtle gradient */
+    border-radius: 15px;
+    padding: 20px 20px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+    cursor: pointer;
+    min-width: 200px;
+   
+   
+}
+
+.section .icon-box:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    background: linear-gradient(145deg, #a7cbd6, #c5d2e8); /* subtle hover gradient */
+}
+
+/* Icon image */
+.section .icon-box img {
+    width: 50px;
+    height: 40px;
+    margin-bottom: 5px;
+    transition: transform 0.4s ease;
+}
+
+.section .icon-box:hover img {
+    transform: scale(1.2);
+}
+
+/* Card title */
+.section .icon-box h3 {
+    font-size: 22px;
+    color: #222;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+/* Card description */
+.section .icon-box p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 5px;
+}
+
+/* Responsive tweaks */
+@media screen and (max-width: 768px) {
+    .section {
+        padding: 60px 15px;
+    }
+
+    .section h2 {
+        font-size: 30px;
+    }
+
+    .section p {
+        font-size: 16px;
+    }
+}

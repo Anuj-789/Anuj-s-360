@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us</title>
+<link rel="stylesheet" href="../public/css/allstructure/nav.css">
+<link rel="stylesheet" href="../public/css/allstructure/aboutus.css">
+<style>
+ .chat{
+      
+        position: fixed;
+        bottom: 8%;
+        left:92%;
+     
+     }
+
+/* Hero Section */
+
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+    <!-- Left Logo -->
+    <div class="nav-left">
+        <img src="../public/images/logo.jpg" alt="Logo">
+    </div>
+
+    <!-- Center Image -->
+    <div class="nav-center">
+        <marquee direction="up" behavior="slide">
+      About-us 
+        </marquee>
+        
+    </div>
+
+  
+    <div class="nav-right">
+    <img src="../public/images/nav1.png" alt="Nav Image" id="menuBtn">
+
+    <!-- Dropdown Menu -->
+    <div class="dropdown" id="dropdownMenu">
+        <div class="menu-header">
+        ← Back
+        </div>
+
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/service">Services</a>
+        <a href="/contact">Contact</a>
+         <a href="/profile"> My Profile</a>
+    </div>
+    </div>
+</nav>
+
+
+
+
+
+
+<!-- Hero -->
+<section class="about-hero">
+
+  <p>We are passionate about delivering high-quality services and building strong customer relationships across multiple cities.</p>
+</section>
+
+<!-- About Content -->
+<section class="about-container">
+  <div class="about-image">
+    <img src="../public/images/ig4.jpg" alt="About Image">
+  </div>
+  <div class="about-content">
+    <h2>Who We Are</h2>
+    <p>
+      We are a fast-growing company committed to providing exceptional services in multiple cities. 
+      Our mission is to ensure quality, trust, and customer satisfaction.
+    </p>
+    <p>
+      With years of experience and a dedicated team, we continue to expand and serve more customers every day.
+    </p>
+  </div>
+</section>
+
+
+  <div class="chat">
+        <a href="https://poe.com/Teamcode360">
+        <img src="https://assets.bacancytechnology.com/main-boot-5/images/chatbot/side-img-1.gif" width="130px"/>
+        </a>
+        </div>
+
+<section class="about-section">
+  <div class="container">
+    <h2>Why We Exist & Our Mission</h2>
+    <p>
+      We created this platform to make shopping easy and convenient while supporting local businesses. Many local shops don’t have a way to sell online, and customers often find it hard to access their products. Our mission is to connect local shops and customers in one simple platform so everyone can benefit.
+    </p>
+    
+  </div>
+</section>
+
+
+<!-- Stats -->
+<section class="stats-section">
+  <div class="stats-container">
+    <div class="stat-box">
+      <h3>30+</h3>
+      <p>Cities Covered</p>
+    </div>
+    <div class="stat-box">
+      <h3>900+</h3>
+      <p>Shops Covered</p>
+    </div>
+    <div class="stat-box">
+      <h3>5K+</h3>
+      <p>Happy Customers</p>
+    </div>
+    <div class="stat-box">
+      <h3>1+ Years</h3>
+      <p>Experience</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="why-choose-us">
+  <div class="wrapper">
+    <h2 class="section-title">Why Choose Us</h2>
+    <ul class="features-list">
+      <li class="feature-item">Support your local businesses</li>
+      <li class="feature-item">Easy-to-use and safe shopping experience</li>
+      <li class="feature-item">A wide variety of shops and products in one place</li>
+      <li class="feature-item">Fast and reliable delivery</li>
+      <li class="feature-item">Affordable prices and great deals</li>
+      <li class="feature-item">Excellent customer support</li>
+    </ul>
+  </div>
+</section>
+
+
+
+
+
+<!-- Team -->
+<section class="team-section">
+  <h2>Our Team</h2>
+  <div class="team-container">
+    <div class="team-member">
+      <img src="../public/images/founderphoto/mypic1.jpeg">
+      <h4>Dr.Anuj Gupta</h4>
+      <p>Founder & CEO</p>
+    </div>
+    <div class="team-member">
+      <img src="../public/images/founderphoto/aasim.jpeg">
+      <h4>Md.Aasim Ansari</h4>
+      <p>Chairman</p>
+    </div>
+    
+  
+  </div>
+</section>
+
+<section class="join-us">
+  <div class="join-wrapper">
+    <h2 class="join-title">Join Us</h2>
+    <p class="join-text">Be part of our community and help support your local shops today!</p>
+    <a href="/service" class="join-button">Get Started</a>
+  </div>
+</section>
+
+
+
+
+<script>
+    const menuBtn = document.getElementById("menuBtn");
+    const dropdownMenu = document.getElementById("dropdownMenu");
+    const backBtn = document.querySelector(".menu-header");
+
+    menuBtn.addEventListener("click", () => {
+        dropdownMenu.classList.toggle("show");
+    });
+
+    backBtn.addEventListener("click", () => {
+        dropdownMenu.classList.remove("show");
+    });
+</script>
+
+</body>
+</html>

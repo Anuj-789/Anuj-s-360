@@ -1,0 +1,35 @@
+
+
+  div.producttypes{
+            margin-top: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            border: 2px solid rgb(68, 189, 133);
+            padding: 10px 10px 10px 10px;
+            border-radius: 10px;
+        }
+       .producttypes button{
+           height: 45px;
+           border: 3px solid rgb(68, 189, 133);
+           border-radius: 15px;
+           font-size: 20px;
+           padding: 10px;
+           margin-left: 20px;
+           cursor: pointer;
+           min-width: auto;
+        }
+       .producttypes button:hover {
+            background: linear-gradient(90deg, #e9fcd4, #bfdcff);
+            border-radius: 4px;
+            color: rgb(4, 4, 110);
+
+          
+        }
+
+        .producttypes button.active {
+  background-color: rgb(94, 183, 148);
+  color: #ffffff;
+   border-radius: 4px;
+}

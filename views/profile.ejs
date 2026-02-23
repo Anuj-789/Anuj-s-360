@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product Card</title>
+ 
+  <link rel="stylesheet" href="productbox.css">
+  <link rel="stylesheet" href="../public/css/allstructure/nav.css">
+  <link rel="stylesheet" href="../public/css/authcss/aside.css">
+  <link rel="stylesheet" href="../public/css/authcss/section.css">
+  <link rel="stylesheet" href="../public/css/mycart.css">
+  <style>
+    /* NAVBAR */
+
+    
+.navbar{
+     border-bottom: 5px solid rgb(16, 12, 133);
+}
+  
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 200px;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+
+/* MAIN CONTAINER */
+.main-container {
+  display: flex;
+  margin-top: 220px; /* navbar height */
+}
+
+
+/* LEFT SHOP BOX */
+.shop-box {
+  width: 20%;
+  height: calc(100vh - 220px); /* full sidebar height minus navbar */
+  position: fixed;
+  top: 200px;
+  left: 0;
+  background: #fff;
+  padding: 20px;
+  border-right: 3px solid green;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+  border-radius: 15px;
+  border-bottom: 5px solid rgb(16, 12, 133);
+
+  display: flex;
+  flex-direction: column; /* stack content vertically */
+  overflow-y: auto;       /* enable vertical scrolling if content overflows */
+}
+.shop-box p{
+  text-align: left;
+}
+
+.shop-img {
+  width: 100%;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover; /* ensures full image fits nicely */
+  margin-bottom: 10px;
+}
+
+.shop-name {
+  margin: 10px 0 5px;
+}
+
+.shop-bottom {
+   /* pushes last updated & logout to the bottom */
+  text-align: center;
+}
+.shop-updated {
+  font-size: 12px;
+  color: #555;
+  margin-top: 15px;
+
+  
+}
+.shop-fav{
+  margin-top: 20px;
+}
+
+.shop-desc {
+  font-size: 14px;
+  color: #555;
+  margin: 15px;
+}
+.shop-actions {
+  display: flex;
+  flex-direction: row;
+  margin-top: 15px;
+  margin-bottom: 15px;
+ justify-content: center; 
+ gap: 20%;
+}
+
+.shop-cart {
+  flex: 1;
+  padding: 10px;
+  background: rgb(14, 110, 14);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  min-width: max-content;
+}
+
+.shop-fav {
+  width: 75px;
+  font-size: 20px;
+  border-radius: 6px;
+}
+.shop-rating{
+    margin: 8px 0px 10px 0px;
+}
+
+/* PRODUCT AREA */
+.product-area {
+  margin-left: 20%;
+  width: 80%;
+  padding: 20px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+/* HIDE ON SCROLL */
+.hide {
+  transform: translateY(-100%);
+}
+
+.hide-left {
+  transform: translateX(-100%);
+}
+
+.auth-buttons button {
+  padding: 10px 20px;
+  margin-right: 10px;
+  background: green;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.auth-form {
+  margin-top: 30px;
+  max-width: 400px;
+}
+
+ .chat{
+      
+        position: fixed;
+        bottom: 8%;
+        left:92%;
+     
+     }
+
+     .shop-info-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.welcome-btn {
+  margin: 20px;
+}
+.welcome-btn:hover {
+   background: #c3edd4; 
+   color: #111;  /* darker green */
+  transform: scale(1.05); /* slight zoom */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 768px){
+  .shop-box { width: 100%; height: auto; position: relative; top:0; border-right: none; }
+  .product-area { margin-left:0; width:100%; }
+}
+
+
+  </style>
+</head>
+<body>
+
+
+
+<!-- ===== NAVBAR (YOUR CODE) ===== -->
+<nav class="navbar">
+    <div class="nav-left">
+        <img src="../public/images/logo.jpg" alt="Logo">
+    </div>
+
+    <div class="nav-center">
+        <marquee direction="up" behavior="slide">My Profile</marquee>
+    </div>
+
+    <div class="nav-right">
+        <img src="../public/images/nav1.png" id="menuBtn">
+
+        <div class="dropdown" id="dropdownMenu">
+            <div class="menu-header">← Back</div>
+            <a href="/">Home</a>
+            <a href="/aboutus">About</a>
+            <a href="/service">Services</a>
+            <a href="/profile"> My Profile</a>
+           
+        </div>
+    </div>
+</nav>
+
+<!-- MAIN LAYOUT -->
+<div class="main-container">
+
+ 
+  <aside class="shop-box" id="shopBox">
+  <% if (user) { %>
+    <!-- LOGGED IN USER -->
+    <img src="../public/images/logprofilephoto.avif" class="shop-img" alt="User">
+    <h3 class="shop-name"><%= user.name %></h3>
+    <p> Email<%= user.email %></p>
+   <p>📞 Phone: <%= user.contactNumber %></p>
+<p>💬 WhatsApp: <%= user.whatsappNumber %></p>
+<p>📍 Location: <%= user.location %></p>
+  
+
+    <div class="shop-actions">
+
+      <form action="/logout" method="POST">
+        <button class="shop-fav" type="submit">logout</button>
+      </form>
+    </div>
+
+  <% } else { %>
+    <!-- GUEST USER -->
+    <img src="../public/images/profilegif.webp" class="shop-img" alt="profile">
+    <h3 class="shop-name">Name not defined</h3>
+    <p>Please Signin first</p>
+  <% } %>
+</aside>
+
+  <!-- RIGHT PRODUCTS -->
+  <section class="product-area">
+
+  <% if (!user) { %>
+    <!-- AUTH BUTTONS -->
+    <div class="auth-buttons">
+      <button onclick="showLogin()">Sign In</button>
+      <button onclick="showSignup()">Sign Up</button>
+    
+    </div>
+
+    <!-- LOGIN FORM -->
+    <div id="loginForm" class="auth-form-wrapper" style="display:none">
+      <div class="auth-form-image">
+        <img src="../public/images/login.gif" alt="Login Illustration">
+      </div>
+      <div class="auth-form">
+        <h2>Login</h2>
+    
+          <p style="color: rgb(249, 0, 91); font-weight: bold; display: none;" id="loginError"></p>
+        
+   
+        <form action="/login" method="POST" id="loginFormSubmit">
+          <input type="email" name="email" placeholder="Email" required><br>
+          <input type="password" name="password" placeholder="Password" required><br>
+          <button type="submit">Login</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- SIGNUP FORM -->
+    <div id="signupForm" class="auth-form-wrapper" style="display:none">
+      <div class="auth-form-image">
+        <img src="../public/images/signup.gif" alt="Signup Illustration">
+      </div>
+      <div class="auth-form">
+        <h2>Signup</h2>
+        <form  id="signupFormSubmit">
+          <input type="text" name="name" required placeholder="Name"><br>
+          <input type="email" name="email" required placeholder="Email"><br>
+          <input type="password" name="password" required placeholder="Password"><br>
+          <input type="password" name="confirmPassword" required placeholder="Confirm Password"><br>
+          <input type="text" name="contactNumber" required placeholder="Phone Number (10 digits)"><br>
+          <input type="text" name="whatsappNumber" required placeholder="WhatsApp Number (10 digits)"><br>
+         <input type="text" name="location" id="locationInput" placeholder="Location details" required><br>
+
+          <button type="submit">Signup</button>
+        </form>
+      </div>
+    </div>
+
+  <% } else { %>
+    <!-- LOGGED IN USER CONTENT -->
+    <h2>Welcome, <%= user.name %> 👋</h2>
+
+     <div class="welcome-actions">
+     
+           <a href="/service">
+        <button class="welcome-btn">Shops near me</button>
+      </a>
+      
+       <button class="welcome-btn" onclick="showCart()">My Cart 🛒</button>
+
+        <button class="welcome-btn" onclick="showReceipts()">My Receipt 🧾</button>
+
+         </div>
+
+        
+         <div id="cartContainer" class="cart-container"></div>
+
+  </div>
+
+    > 
+    
+  <% } %>
+
+    <div class="chat">
+        <a href="https://poe.com/Teamcode360">
+        <img src="https://assets.bacancytechnology.com/main-boot-5/images/chatbot/side-img-1.gif" width="130px"/>
+        </a>
+        </div>
+
+
+</section>
+
+
+
+
+</div>
+
+<script>
+document
+  .getElementById("loginFormSubmit")
+  .addEventListener("submit", async function (e) {
+
+    e.preventDefault(); // 🔥 PAGE RELOAD ROKO
+
+    const formData = new FormData(this);
+    const data = Object.fromEntries(formData);
+
+    try {
+      const res = await fetch("/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      });
+
+      const result = await res.json();
+
+      if (!res.ok) {
+        alert(result.message); // 🔥 BACKEND MESSAGE ALERT
+        return;
+      }
+
+      // ✅ success
+      alert("Login successful");
+      window.location.href = "/profile";
+
+    } catch (err) {
+      alert("Something went wrong");
+    }
+});
+</script>
+
+
+<script>
+document.getElementById("signupFormSubmit").addEventListener("submit", async function(e) {
+  e.preventDefault(); // STOP default form submit
+  const formData = new FormData(this);
+  const data = Object.fromEntries(formData.entries());
+
+  try {
+    const res = await fetch("/signup", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    });
+
+    const result = await res.json();
+
+    if (res.ok) {
+      alert(result.message); // ❌ error from backend
+      return;
+    }
+
+    alert(result.message); // ✅ Signup successful
+    window.location.href = "/profile";
+
+  } catch (err) {
+    console.error(err);
+    alert("Signup failed");
+  }
+});
+
+
+
+</script>
+<script>
+function showUpdateForm() {
+  document.getElementById("updateProfileWrapper").style.display = "block";
+}
+</script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+
+
+</body>
+
+<script>
+let lastScroll = 0;
+const navbar = document.getElementById("navbar");
+const shopBox = document.getElementById("shopBox");
+
+window.addEventListener("scroll", () => {
+  let currentScroll = window.pageYOffset;
+
+  if (currentScroll > lastScroll) {
+    // scrolling down
+    navbar.classList.add("hide");
+    shopBox.classList.add("hide-left");
+  } else {
+    // scrolling up
+    navbar.classList.remove("hide");
+    shopBox.classList.remove("hide-left");
+  }
+
+  lastScroll = currentScroll;
+});
+</script>
+
+
+
+<script>
+    const menuBtn = document.getElementById("menuBtn");
+    const dropdownMenu = document.getElementById("dropdownMenu");
+    const backBtn = document.querySelector(".menu-header");
+
+    menuBtn.addEventListener("click", () => {
+        dropdownMenu.classList.toggle("show");
+    });
+
+    backBtn.addEventListener("click", () => {
+        dropdownMenu.classList.remove("show");
+    });
+</script>
+
+<script>
+function showLogin() {
+  document.getElementById("loginForm").style.display = "block";
+  document.getElementById("signupForm").style.display = "none";
+}
+
+function showSignup() {
+  document.getElementById("signupForm").style.display = "block";
+  document.getElementById("loginForm").style.display = "none";
+}
+</script>
+
+
+
+
+<script>
+async function showCart() {
+  try {
+    const res = await fetch("/cart/all"); // fetch all carts
+    if (!res.ok) {
+      const err = await res.json();
+      alert(err.message || "Something went wrong!");
+      return;
+    }
+
+    const carts = await res.json();
+    const container = document.getElementById("cartContainer");
+
+    if (!carts || carts.length === 0) {
+      container.innerHTML = "<p>Your cart is empty!</p>";
+      return;
+    }
+
+    let html = "";
+    carts.forEach(cart => {
+      html += `
+        <div class="shop-card" onclick="goToShop('${cart.shop._id}')">
+          <h3>${cart.shop.name}</h3>
+        </div>
+      `;
+    });
+
+    container.innerHTML = html;
+
+  } catch (err) {
+    console.error(err);
+    alert("Something went wrong while fetching cart!");
+  }
+}
+
+// Redirect to shop page
+function goToShop(shopId) {
+  window.location.href = `/shop/${shopId}`;
+}
+</script>
+
+
+<script>
+function showReceipts() {
+  const container = document.getElementById("cartContainer");
+
+  const receiptShops = [
+    {
+      name: "Srinivas Kirana Store",
+      image: "/public/images/receipt.images/receipt1.png"
+    },
+    {
+      name: "Venkateshwara Supermarket",
+      image: "/public/images/receipt.images/receipt2.png"
+    },
+    {
+      name: "Sree MahaLAxmi Store",
+      image: "/public/images/receipt.images/receipt3.png"
+    }
+  ];
+
+  let html = "<h3></h3>";
+
+  receiptShops.forEach(shop => {
+    html += `
+      <div class="shop-card" onclick="openReceipt('${shop.name}', '${shop.image}')">
+        <h3>${shop.name}</h3>
+        <p>View Receipt</p>
+      </div>
+    `;
+  });
+
+  container.innerHTML = html;
+}
+</script>
+
+
+<script>
+function openReceipt(shopName, imageUrl) {
+  const modal = document.createElement("div");
+  modal.id = "receiptModal";
+  modal.style.cssText = `
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.6);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:5000;
+  `;
+
+  modal.innerHTML = `
+    <div style="
+      background:white;
+      padding:15px;
+      border-radius:12px;
+      width:90%;
+      max-width:400px;
+      text-align:center;
+      position:relative;
+    ">
+      <!-- HEADER -->
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <button onclick="closeReceipt()"
+          style="
+            background:green;
+            color:white;
+            border:none;
+            padding:6px 10px;
+            border-radius:6px;
+            cursor:pointer;
+          ">
+          ⬅ Back
+        </button>
+
+        <button onclick="downloadReceipt('${imageUrl}')"
+          style="
+            background:green;
+            color:white;
+            border:none;
+            padding:6px 12px;
+            border-radius:6px;
+            cursor:pointer;
+          ">
+          ⬇ Download
+        </button>
+      </div>
+
+      <h3 style="margin-top:15px;">${shopName}</h3>
+
+      <img id="receiptImg"
+        src="${imageUrl}"
+        alt="Receipt"
+        style="width:100%;margin-top:15px;border-radius:10px;">
+    </div>
+  `;
+
+  document.body.appendChild(modal);
+}
+
+function closeReceipt() {
+  const modal = document.getElementById("receiptModal");
+  if (modal) modal.remove();
+}
+</script>
+
+
+<script>
+function downloadReceipt(imageUrl) {
+  const { jsPDF } = window.jspdf;
+  const pdf = new jsPDF("p", "mm", "a4");
+
+  const img = new Image();
+  img.crossOrigin = "anonymous";
+  img.src = imageUrl;
+
+  img.onload = function () {
+    const pageWidth = pdf.internal.pageSize.getWidth();
+    const pageHeight = (img.height * pageWidth) / img.width;
+
+    pdf.addImage(img, "JPEG", 0, 0, pageWidth, pageHeight);
+    pdf.save("360 Bills.pdf");
+  };
+}
+</script>
+
+
+
+
+
+
+</html>

@@ -1,0 +1,200 @@
+/* ================= SHOP PRODUCTS PAGE ================= */
+
+.shop-products-page {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  background: #f5f7fa;
+  box-sizing: border-box;
+}
+
+/* ================= LEFT SHOP SIDEBAR ================= */
+
+.shop-sidebar {
+  width: 280px;
+  background: #ffffff;
+  border-right: 1px solid #ddd;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 75vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top:20%;
+}
+
+.shop-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+}
+
+#shopName {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.shop-owner {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+.shop-timing {
+  font-size: 14px;
+  color: #2e8b57;
+  margin-bottom: 20px;
+}
+
+.cart-btn {
+  width: 100%;
+  padding: 12px;
+  background: rgb(8, 106, 41);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.cart-btn:hover {
+  background: rgb(12, 130, 50);
+}
+
+/* ================= RIGHT PRODUCTS SECTION ================= */
+
+.shop-products-content {
+  margin-left: 300px; /* sidebar ke liye space */
+  padding: 20px;
+  width: calc(100% - 300px);
+}
+
+.products-heading {
+  font-size: 24px;
+  margin-bottom: 20px;
+  border-bottom: 3px solid rgb(8, 106, 41);
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* ================= PRODUCTS GRID ================= */
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* ================= PRODUCT CARD ================= */
+
+.product-card {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.2s;
+  
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-card img {
+  width: 100%;
+ min-height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.product-card h4 {
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.product-card p {
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.product-card button {
+  background: #ff9800;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.product-card button:hover {
+  background: #e68900;
+}
+
+/* ================= RESPONSIVE (MOBILE) ================= */
+
+@media (max-width: 768px) {
+  .shop-sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .shop-products-content {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.back-btn {
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: #086a29;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.back-btn:hover {
+  text-decoration: underline;
+}
+
+  .producttypes button{
+           height: 45px;
+           border: 3px solid rgb(68, 189, 133);
+           border-radius: 15px;
+           font-size: 20px;
+           padding: 10px;
+           margin-left: 20px;
+           cursor: pointer;
+           min-width: auto;
+        }
+       .producttypes button:hover {
+            background-color: rgb(173, 228, 206);
+            border-radius: 4px;
+
+          
+        }
+
+@media (max-width: 480px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+}

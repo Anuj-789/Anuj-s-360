@@ -1,0 +1,95 @@
+
+/* Slider container */
+.slider {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background: linear-gradient(90deg, #e9fcd4, #bfdcff);
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 10px 0;
+    font-size: 30px;
+}
+
+/* Track for slides */
+.slides-track {
+    display: flex;
+    width: max-content;
+    animation: slide-left 20s linear infinite;
+}
+
+/* Each slide */
+.slide {
+    display: flex;
+    align-items: center;
+    min-width: 220px;
+    margin: 0 10px;
+    flex-shrink: 0;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+/* Zoom on hover */
+.slide:hover img {
+    transform: scale(1.1);
+}
+
+/* Image styling */
+.slide img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+/* Text on left */
+.slide-text-left {
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+    white-space: nowrap;
+}
+
+.slide:hover ~ .slide,
+.slide:hover {
+    animation-play-state: paused;
+}
+
+.slider:hover .slides-track {
+    animation-play-state: paused;
+}
+
+
+.product-intro {
+    text-align: center;
+    padding: 40px 20px;
+    background: #ffffff;
+    font-family: Arial, sans-serif;
+}
+
+.product-intro h2 {
+    
+    color: #1e3d59;
+    margin-bottom: 10px;
+}
+
+.product-intro p {
+    font-size: 16px;
+    color: #333;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+
+/* ===== Infinite sliding animation ===== */
+@keyframes slide-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* half the track width, because track is duplicated */
+}

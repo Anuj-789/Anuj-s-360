@@ -1,0 +1,135 @@
+.cart-container {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.shop-card {
+  padding: 15px 20px;
+  background: #f0f0f0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.shop-card:hover {
+  background: #d4ffd4;
+  transform: translateY(-3px);
+}
+
+.shop-card h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+}
+
+
+
+
+
+
+
+
+
+
+/* Cart container */
+  #cartContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  /* Shop card */
+  .shop-card {
+    width: 200px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .shop-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+
+  .shop-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+  }
+
+  .shop-card h3 {
+    margin: 10px 0;
+    font-size: 16px;
+  }
+
+  /* Cart container */
+.cart-container, #cartContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 25px;
+  justify-content: center;
+}
+
+/* Shop card */
+.shop-card {
+  width: 200px;
+  padding: 20px;
+  background: linear-gradient(135deg, #f9f9f9, #e6ffe6);
+  border-radius: 15px;
+  cursor: pointer;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 500;
+  color: #333;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  border: 1px solid #cce5cc;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover effects */
+.shop-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  background: linear-gradient(135deg, #d4ffd4, #b9f0b9);
+}
+
+/* Animated "pop" on hover */
+.shop-card::after {
+  content: '';
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  top: -10%;
+  left: -10%;
+  background: rgba(255, 255, 255, 0.15);
+  transform: rotate(45deg) scale(0);
+  transition: transform 0.5s ease;
+  pointer-events: none;
+}
+
+.shop-card:hover::after {
+  transform: rotate(45deg) scale(1);
+}
+
+/* Shop name */
+.shop-card h3 {
+  margin: 10px 0 0 0;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  color: #2c662d;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  transition: color 0.3s ease;
+}
+
+.shop-card:hover h3 {
+  color: #1a3d1a;
+}

@@ -1,0 +1,52 @@
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+}
+
+/* Modal Box */
+.modal-content {
+    background: linear-gradient(90deg, #ecf4e4, #e9f0f8);
+    width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 8px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+/* Form styling */
+input, select, textarea {
+    width: 100%;
+    padding: 8px;
+    margin: 6px 0;
+}
+
+button {
+    padding: 10px;
+    width: 100%;
+    background: linear-gradient(90deg, #e9fcd4, #bfdcff);
+    color: rgb(27, 4, 91);
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+    font-size: 30px;
+    border: 5px solid rgb(11, 11, 89);
+}
+
+button:hover{
+     background: linear-gradient(90deg, #b5dc8b, #3a79c7);
+     color: rgb(3, 3, 63);
+     border-radius: 30px;
+}
+
+.close-btn{
+    float: right;
+    cursor: pointer;
+    font-size: 18px;
+    color: red;
+}
+

@@ -1,0 +1,42 @@
+.fav-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  border-radius: 25px;
+  border: 2px solid #ff4d6d;
+  background: white;
+  color: #ff4d6d;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.fav-btn .heart {
+  font-size: 20px;
+  transition: transform 0.3s ease;
+}
+
+.fav-btn:hover {
+  background: #ff4d6d;
+  color: white;
+}
+
+.fav-btn:hover .heart {
+  transform: scale(1.2);
+}
+
+.fav-btn.active {
+  background: #ff4d6d;
+  color: white;
+}
+
+.fav-btn.active .heart {
+  animation: pulse 0.4s ease;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.4); }
+  100% { transform: scale(1); }
+}

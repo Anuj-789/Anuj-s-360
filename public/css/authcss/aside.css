@@ -1,0 +1,97 @@
+/* ===== LEFT SIDEBAR ===== */
+.shop-box {
+  width: 20%;
+  height: calc(100vh - 220px); /* assuming navbar height 220px */
+  position: fixed;
+  top: 200px; /* navbar height */
+  left: 0;
+  background-color: #f7f4f4;
+  padding: 20px;
+  border-right: 3px solid rgb(8, 106, 41);
+  box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  transition: transform 0.3s ease;
+  overflow: hidden;
+}
+
+/* USER IMAGE */
+.shop-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgb(8, 106, 41);
+}
+
+/* USER NAME */
+.shop-name {
+  font-size: 20px;
+  font-weight: bold;
+  color: #032296;
+  margin: 5px 0;
+  text-align: center;
+}
+
+/* USER EMAIL / TEXT */
+.shop-box p {
+  font-size: 15px;
+  
+  color: #012180;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* ACTION BUTTONS CONTAINER */
+.shop-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  align-items: center;
+}
+
+/* BUTTON STYLES */
+.shop-cart,
+.shop-fav {
+  width: 80%;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* EDIT BUTTON */
+.shop-cart {
+  background-color: rgb(8, 106, 41);
+  color: white;
+}
+
+.shop-cart:hover {
+  background-color: rgb(12, 130, 50);
+}
+
+/* LOGOUT BUTTON */
+.shop-fav {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.shop-fav:hover {
+  background-color: #c0392b;
+}
+
+/* GUEST USER IMAGE */
+.shop-box img[src$="profilegif.webp"] {
+  border: 2px dashed #ccc;
+}
+
+/* HIDE LEFT SIDEBAR ON SCROLL */
+.hide-left {
+  transform: translateX(-100%);
+}
