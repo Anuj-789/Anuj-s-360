@@ -186,3 +186,52 @@ h4{
   background-color: rgba(0, 0, 0, 0.2);
   border-radius: 3px;
 }
+
+
+/* ============================= */
+/* FULL RESPONSIVE FIX */
+/* ============================= */
+
+/* Tablet */
+@media (max-width: 992px) {
+
+ .cart-header{
+  font-size: 35px;
+ 
+}
+.cart-header .back-btn{
+  font-size: 30px;
+
+}
+h4{
+  font-size: 35px;
+}
+p{
+  font-size: 30px;
+  margin-top: 5px;
+}
+strong, h3{
+  font-size: 30px;
+}
+button{
+  font-size: 25px;
+}
+
+
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+.cart-header{
+  font-size: 25px;
+}
+
+
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+
+
+
+}

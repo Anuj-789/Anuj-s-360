@@ -135,3 +135,47 @@ export const shopprofilePage = async (req, res) => {
     res.status(500).send('Server error');
   }
 };
+
+
+
+
+
+
+
+export const updateShop = async (req, res) => {
+  try {
+    const shopId = req.session.shop._id;
+    const shop = await Shop.findById(shopId);
+
+    if (!shop) return res.status(404).json({ message: "Shop not found" });
+
+    // Fields to update
+    const fields = [
+      "name",
+      "shopkeeperName",
+      "email",
+      "contactNumber",
+      "whatsappNumber",
+      "district",
+      "area",
+      "address",
+      "category",
+      "locationLink"
+    ];
+
+    fields.forEach(field => {
+      if (req.body[field]) shop[field] = req.body[field];
+    });
+
+    await shop.save();
+
+    // Update session so frontend sees new data immediately
+    req.session.shop = shop;
+
+    res.json({ message: "Shop profile updated successfully!", shop });
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Server error" });
+  }
+};

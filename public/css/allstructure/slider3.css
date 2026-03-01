@@ -1,13 +1,14 @@
-
-
+/* Container for the whole section */
 .location-area {
   width: 70%;
-  margin: 70px auto;
+  margin: 70px auto;        /* top-bottom 70px, centered horizontally */
   text-align: center;
   background-color: rgb(193, 236, 236);
   border-radius: 20px;
+  padding: 30px 20px;       /* padding inside container */
 }
 
+/* Title at the top */
 .location-title {
   font-size: 32px;
   margin-bottom: 40px;
@@ -15,51 +16,64 @@
   padding-top: 10px;
 }
 
+/* Carousel wrapper */
 .carousel-box {
-  position: relative;
-  overflow: hidden;
+  position: relative;       /* to position arrows absolute inside */
+  overflow: hidden;         /* hide overflow outside carousel */
 }
 
+/* Container holding the cards in flex row */
 .carousel-track {
   display: flex;
-  gap: 20px;
+  gap: 20px;                /* space between cards */
+  justify-content: center;  /* center cards horizontally */
 }
 
+/* Each card item */
 .card-item {
-  flex: 0 0 calc(33.333% - 14px);
+  flex: 0 0 calc(33.333% - 14px);  /* width for 3 cards per row minus gaps */
   text-align: center;
   transition: transform 0.4s ease;
+  display: flex;
+  flex-direction: column;    /* stack image and label vertically */
+  align-items: center;       /* center horizontally */
 }
 
+/* Image inside each card */
 .card-item img {
   width: 80%;
   height: 165px;
-  object-fit: cover;
+  object-fit: cover;         /* crop image nicely */
   border-radius: 25px;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
+  display: block;
+  margin: 0 auto;            /* center image */
 }
 
+/* Hover effect on image */
 .card-item:hover img {
   transform: scale(1.05);
-
 }
 
+/* City label under each image */
 .city-label {
-  margin-top: 12px;
+  margin-top: 8px;           /* space above label */
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 700;          /* bold */
   color: #001861;
   letter-spacing: 1px;
   padding-bottom: 10px;
+  width: 80%;                /* match image width */
+  text-align: center;
 }
 
-/* Navigation Buttons */
+/* Navigation arrow buttons */
 .arrow-btn {
   position: absolute;
   top: 40%;
   transform: translateY(-50%);
-  background: rgba(22, 2, 113, 0.6);
-  color: rgb(4, 33, 249);
+  background: rgba(255, 255, 255, 0.6);
+  color: rgb(0, 7, 58);
   border: none;
   padding: 12px 18px;
   cursor: pointer;
@@ -68,32 +82,73 @@
   transition: 0.3s;
   z-index: 10;
   width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+/* Hover effect on arrow buttons */
 .arrow-btn:hover {
   background: rgb(2, 48, 252);
   transform: translateY(-50%) scale(1.1);
 }
 
+/* Position left and right arrows */
 .left-arrow { left: -25px; }
 .right-arrow { right: -25px; }
 
-/* Tablet */
+/* ===== Responsive Styles ===== */
+
+/* Tablet view - max width 992px */
 @media (max-width: 992px) {
   .location-area {
     width: 80%;
   }
   .card-item {
-    flex: 0 0 calc(50% - 10px);
+    flex: 0 0 calc(50% - 10px); /* 2 cards per row on tablet */
   }
 }
 
-/* Mobile */
+/* Mobile view - max width 600px */
+/* Mobile view (max-width: 600px) modifications */
 @media (max-width: 600px) {
   .location-area {
-    width: 95%;
+    width: 85%;
+    max-height: 400px; /* thoda height badhaya for better fit */
+    overflow: hidden;  /* scroll hata diya */
+  }
+  .location-title {
+    margin-bottom: 20px;
+  }
+  .carousel-box, .carousel-track {
+    height: 100%; /* full height container */
   }
   .card-item {
-    flex: 0 0 100%;
+    flex: 0 0 calc(40% - 10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* top align for better spacing */
+    height: 100%; /* fill height */
+  }
+  .card-item img {
+    width: 120%;      /* full width of card */
+    height: 100px;    /* fixed height for uniformity */
+    object-fit: cover; /* crop image nicely to fill */
+    border-radius: 20px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    display: block;
+    margin: 0 auto;
+  }
+  .city-label {
+    margin-top: 8px;
+    font-size: 16px;
+    width: 100%;      /* match image width */
+    text-align: center;
+    color: #001861;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding-bottom: 10px;
   }
 }

@@ -345,4 +345,41 @@ export const placeOrderAndClearCart = async (req, res) => {
 };
 
 
+// controllers/productController.js
+export const getsearchproducts = async (req, res) => {
+  const query = req.query.q;
+  const district = req.query.district; // frontend se bheja hua
+  const area = req.query.area;         // frontend se bheja hua
+
+  if (!query) return res.json([]);
+
+  try {
+    // Step 1: Products search
+    const products = await Product.find({ name: { $regex: query, $options: "i" } });
+    const results = [];
+
+    // Step 2: For each product, filter shops by district & area
+    for (const product of products) {
+      const shopFilter = { category: product.category };
+      if(district) shopFilter.district = district;
+      if(area) shopFilter.area = area;
+
+      const shops = await Shop.find(shopFilter);
+
+      if(shops.length > 0) {
+        results.push({ product, shops });
+      }
+    }
+
+    res.json(results);
+
+  } catch(err) {
+    console.error(err);
+    res.status(500).json([]);
+  }
+}
+
+
+
+
 

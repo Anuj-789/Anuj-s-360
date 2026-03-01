@@ -6,7 +6,7 @@
 max-height:auto;
 margin-top: 20px;
 
-}
+}       
 
 .section h2 {
     font-size: 36px;
@@ -55,6 +55,11 @@ margin-top: 20px;
     transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
     cursor: pointer;
     min-width: 200px;
+
+    height: auto;
+    overflow: visible;
+
+
    
    
 }
@@ -71,6 +76,8 @@ margin-top: 20px;
     height: 40px;
     margin-bottom: 5px;
     transition: transform 0.4s ease;
+    align-items: center;
+    margin-left:34%;
 }
 
 .section .icon-box:hover img {
@@ -83,6 +90,7 @@ margin-top: 20px;
     color: #222;
     margin-bottom: 12px;
     font-weight: 600;
+    word-wrap: break-word;
 }
 
 /* Card description */
@@ -94,9 +102,18 @@ margin-top: 20px;
 }
 
 /* Responsive tweaks */
-@media screen and (max-width: 768px) {
-    .section {
-        padding: 60px 15px;
+
+
+/* ========================= */
+/* Extra Responsive Control  */
+/* ========================= */
+
+/* Large Tablets */
+@media (max-width: 992px) {
+
+    .section .icons {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
     }
 
     .section h2 {
@@ -105,5 +122,71 @@ margin-top: 20px;
 
     .section p {
         font-size: 16px;
+    }
+}
+
+/* Mobile Devices */
+@media (max-width: 600px) {
+
+    .section {
+        padding: 10px 15px;
+       height: auto;
+    }
+
+     .section shop.local{
+        padding: 10px 15px;
+       height: auto;
+    }
+
+    .section .icons {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .section .icon-box {
+        padding: 20px;
+       width: 60%;
+        min-height: auto;
+        overflow: visible;
+        flex-direction: column;
+     
+       
+    
+    }
+
+    .section .icon-box h3 {
+        font-size: 18px;
+        margin: 0px;
+        
+    }
+
+    .section .icon-box p {
+        font-size: 14px;
+    }
+
+    .section h2 {
+        font-size: 30px;
+    }
+
+    .section shop-local p {
+        font-size: 14px;
+        height: 400px;
+    }
+}
+
+/* Extra Small Devices */
+@media (max-width: 399px) {
+
+    .section h2 {
+        font-size: 20px;
+    }
+
+    .section .icon-box {
+        padding: 15px;
+    }
+
+    .section .icon-box img {
+        width: 40px;
+        height: 35px;
     }
 }

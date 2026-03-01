@@ -92,3 +92,98 @@
         transform: scale(1);
     }
 }
+
+
+/* ============================= */
+/* RESPONSIVE CODE */
+/* ============================= */
+
+/* Tablet View */
+@media (max-width: 992px) {
+
+
+    #para,#para2{
+       display: none;
+    }
+
+
+    .content p {
+        font-size: 28px;
+        margin-right: 0;
+        text-align: center;
+        color: #1c64a2;
+      font-weight: bold;
+     margin-top: 200px;
+     animation: colorChange 5s infinite;
+    }
+@keyframes colorChange {
+
+    0%   { color: #1c64a2; }   /* 0s   */
+    20%  { color: #dd791c; }   /* 10s  */
+    40%  { color: #def4f1; }   /* 20s  */
+    60%  { color: #fbfdff; }   /* 30s  */
+    80%  { color: #dd671d; }   /* 40s  */
+    100% { color: #03b3c7; } 
+  
+}
+  
+    .hero {
+        height: 300px;
+    }
+}
+
+
+/* Mobile View */
+@media (max-width: 600px) {
+
+    .hero {
+        height: auto;
+        padding:  0;
+        height: 150px;
+    }
+
+    #para,#para1,#para2{
+       display: none;
+    }
+
+    
+.hero {
+ 
+    border-top : 4px solid rgb(170, 186, 194);
+      border-bottom : 4px solid rgb(121, 130, 162);
+    
+}
+
+    /* Shop Local Section Responsive */
+    .icons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .icon-box {
+        width: 45%;
+        text-align: center;
+    }
+}
+
+/* Extra Small Devices */
+@media (max-width: 400px) {
+
+    .icon-box {
+        width: 100%;
+    }
+
+    .content h1 {
+        font-size: 20px;
+    }
+
+    .content p {
+        font-size: 16px;
+    }
+
+    .content h3 {
+        font-size: 14px;
+    }
+}

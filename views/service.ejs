@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,274 +7,232 @@
     <link rel="stylesheet" href="../public/css/searchbox.css">
     <link rel="stylesheet" href="../public/css/card.css">
     <link rel="stylesheet" href="../public/css/shops-product.css">
-
-    <title>Document</title>
+      <link rel="stylesheet" href="../public/css/selectcontainer.css">
+    <title>Anuj's-360</title>
+     
     <style>
-
-
-.navbar{
-     border-bottom: 5px solid rgb(16, 12, 133);
-}
-        .nav-center {
-
-            position: relative;
-            margin-right: 180px;
-            border-bottom: 4px solid rgb(8, 106, 41);
-            border-radius: 10px;
-        }
-
-
-        .container {
-          background: linear-gradient(90deg, #e9fcd4, #bfdcff);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            max-width: 90%;
-            height: 120px;
-            display: flex;
-            margin-left: 6%;
-        }
-
-        .container h2 {
-            margin-right: 20px;
-            margin-top: 20px;
-        }
-
-        .container select,
-        button {
-            padding: 10px;
-            margin: 10px 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            min-width: 250px;
-            font-size: 20px;
-            height: 50px;
-        }
-
-        .container button {
-            background-color: rgb(24, 145, 8);
-            color: #fff;
-            border: none;
-            cursor: pointer;
-        }
-
-        .container button:hover {
-           background: linear-gradient(90deg, #9ee453, #2175da);
-        }
-
-        /* Result display */
-        #result {
-            margin-top: 20px;
-            font-weight: bold;
-        }
-
-        #result {
-            font-size: 20px;
-        }
+ 
     </style>
 </head>
-
 <body>
 
-    <nav class="navbar">
-        <!-- Left Logo -->
-        <div class="nav-left">
-            <img src="../public/images/logo.jpg" alt="Logo">
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="nav-left"><img src="../public/images/logo.jpg" alt="Logo"></div>
+    <div class="nav-center"><marquee direction="up" behavior="slide">Services</marquee></div>
+    <div class="nav-right">
+        <img src="../public/images/nav1.png" alt="Nav Image" id="menuBtn">
+        <div class="dropdown" id="dropdownMenu">
+            <div class="menu-header">← Back</div>
+            <a href="/">Home</a>
+            <a href="/aboutus">About</a>
+            <a href="/service">Services</a>
+         
+             <a href="/profile"> My Profile</a>
+     
+       
         </div>
+    </div>
+</nav>
 
-        <!-- Center Image -->
-        <div class="nav-center">
-            <marquee direction="up" behavior="slide">
-                Services
-            </marquee>
+<!-- Location  -->
+<div class="outer">
+    <div class="container">
+        <h2>Select</h2>
+        <div>
+            <select id="districtSelect">
+                <option value="">My District</option>
+                <option value="hyderabad">Hyderabad</option>
+                <option value="rangareddy">Ranga Reddy</option>
+            </select>
+            <select id="areaSelect">
+                <option value="">Select Area</option>
+            </select>
         </div>
+        <button id="searchBtn">Search</button>
 
-
-        <div class="nav-right">
-            <img src="../public/images/nav1.png" alt="Nav Image" id="menuBtn">
-
-            <!-- Dropdown Menu -->
-            <div class="dropdown" id="dropdownMenu">
-                <div class="menu-header">
-                    ← Back
-                </div>
-
-                <a href="/">Home</a>
-                <a href="/aboutus">About</a>
-                <a href="/service">Services</a>
-                <a href="/profile">profile</a>
-            </div>
-        </div>
-    </nav>
-    <!-- searching location-->
-    <div class="outer">
-        <div class="container">
-            <h2>Select</h2>
-            <div>
-                <select id="districtSelect">
-                    <option value="">Select District</option>
-                    <option value="hyderabad">Hyderabad</option>
-                    <option value="rangareddy">Ranga Reddy</option>
-                </select>
-
-                <select id="areaSelect">
-                    <option value="">Select Area</option>
-                </select>
-            </div>
-            <button id="searchBtn">Search</button>
-
+        <div id="locationWrapper">
             <div id="result"></div>
+            <div class="search-box-container" style="display:none;">
+                <input type="text" id="productSearch" placeholder="Search products...">
+            </div>
         </div>
     </div>
+</div>
 
+<!-- Categories -->
+<div class="producttypes"> 
+  
+    <button data-category="grocery">Grocery</button>
+    <button data-category="fruits">Fruits & Vegetables</button>
+    <button data-category="bakery">Bakery</button>
+    <button data-category="electronics">Electronics</button>
+    <button data-category="garments">Garments</button>
+    <button data-category="stationery">Stationery</button>
+</div>
 
-    <div class="producttypes">
-        <button data-category="grocery">Grocery</button>
-        <button data-category="fruits">Fruits & Vegetables</button>
-        <button data-category="bakery">Bakery</button>
-        <button data-category="electronics">Electronics</button>
-        <button data-category="garments">Garments</button>
-        <button data-category="stationery">Stationery</button>
+<!-- Shops / Products Container -->
+<div id="shopsContainer" class="card-container"></div>
 
+<!-- Scripts -->
 
+<!-- Navbar toggle -->
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const dropdownMenu = document.getElementById("dropdownMenu");
+const backBtn = document.querySelector(".menu-header");
 
-    </div>
-    </div>
+menuBtn.addEventListener("click",()=>dropdownMenu.classList.toggle("show"));
+backBtn.addEventListener("click",()=>dropdownMenu.classList.remove("show"));
+</script>
 
-    
-    <div id="shopsContainer" class="card-container"></div>
+<!-- District & Area dropdown -->
+<script>
+const districtSelect = document.getElementById("districtSelect");
+const areaSelect = document.getElementById("areaSelect");
+const resultDiv = document.getElementById("result");
 
+const areas = {
+    hyderabad:["Nagole","Tarnaka","Dilsukhnagar","LB Nagar","Uppal","Afzalgunj","Koti","Charminar"],
+    rangareddy:["Ibrahimpatnam","B.N. Reddy Nagar","Meerpet","Balapur","Cherlapalli","Ghatkesar"]
+};
 
- 
-
-
-
-
-
-
-
-
-    <script>
-        const menuBtn = document.getElementById("menuBtn");
-        const dropdownMenu = document.getElementById("dropdownMenu");
-        const backBtn = document.querySelector(".menu-header");
-
-        menuBtn.addEventListener("click", () => {
-            dropdownMenu.classList.toggle("show");
+districtSelect.addEventListener("change", function(){
+    const selectedDistrict = this.value;
+    areaSelect.innerHTML = '<option value="">Select Area</option>';
+    if(selectedDistrict && areas[selectedDistrict]){
+        areas[selectedDistrict].forEach(area=>{
+            const option = document.createElement("option");
+            option.value = area.toLowerCase();
+            option.textContent = area;
+            areaSelect.appendChild(option);
         });
+    }
+});
+</script>
 
-        backBtn.addEventListener("click", () => {
-            dropdownMenu.classList.remove("show");
+<!-- Search button -->
+<script>
+const searchBtn = document.getElementById("searchBtn");
+const searchBoxContainer = document.querySelector(".search-box-container");
+const shopsContainer = document.getElementById("shopsContainer");
+const searchInput = document.getElementById('productSearch');
+
+searchBtn.addEventListener("click", function(e){
+     e.preventDefault();
+    const district = districtSelect.value;
+    const area = areaSelect.value;
+
+    if(!district || !area){
+        resultDiv.textContent = "Please select district and area.";
+        resultDiv.style.color = "red";
+        searchBoxContainer.style.display = "none";
+    } else {
+        resultDiv.style.display = "none";
+        searchBoxContainer.style.display = "block";
+        shopsContainer.innerHTML = "";
+        searchInput.value = "";
+    }
+});
+</script>
+
+<!-- Category buttons -->
+<script>
+const categoryButtons = document.querySelectorAll(".producttypes button");
+
+categoryButtons.forEach(button=>{
+    button.addEventListener("click", async ()=>{
+        const district = districtSelect.value;
+        const area = areaSelect.value;
+        const category = button.dataset.category;
+
+        if(!district || !area){
+            alert("Please select district and area first");
+            return;
+        }
+
+        // Remove active from all
+        categoryButtons.forEach(btn=>btn.classList.remove("active"));
+        // Set active
+        button.classList.add("active");
+
+        // Clear search input & results
+        searchInput.value = "";
+        shopsContainer.innerHTML = "";
+
+        const res = await fetch(`/api/shops?district=${district}&area=${area}&category=${category}`);
+        const shops = await res.json();
+
+        if(shops.length===0){
+            shopsContainer.innerHTML="<p>No shops found</p>";
+            return;
+        }
+
+        shops.forEach(shop=>{
+            const card = document.createElement("div");
+            card.classList.add("card");
+            card.innerHTML = `
+                <img src="${shop.image}" class="card-img">
+                <div class="card-content">
+                    <h3>${shop.name}</h3>
+                    <a href="/shop/${shop._id}"><button>Visit</button></a>
+                </div>
+            `;
+            shopsContainer.appendChild(card);
         });
-    </script>
+    });
+});
+</script>
 
-    <script>
-        const districtSelect = document.getElementById("districtSelect");
-        const areaSelect = document.getElementById("areaSelect");
-        const resultDiv = document.getElementById("result");
+<!-- Product search -->
+<script>
+searchInput.addEventListener('input', async ()=>{
+    const query = searchInput.value.trim();
+    const district = districtSelect.value;
+    const area = areaSelect.value;
+    shopsContainer.innerHTML = "";
 
-        // District -> Areas mapping
-        const areas = {
-            hyderabad: ["Nagole", "Tarnaka", "Dilsukhnagar", "LB Nagar", "Uppal", "Afzalgunj", "Koti", "Charminar"],
-            rangareddy: ["Ibrahimpatnam", "B.N. Reddy Nagar", "Meerpet", "Balapur", "Cherlapalli", "Ghatkesar"]
-        };
+    if(!district || !area){
+        if(query) alert("Please select district and area first");
+        return;
+    }
+    if(!query) return;
 
-        // Populate area dropdown based on district
-        districtSelect.addEventListener("change", function () {
-            const selectedDistrict = this.value;
-            areaSelect.innerHTML = '<option value="">Select Area</option>'; // Reset
-            if (selectedDistrict && areas[selectedDistrict]) {
-                areas[selectedDistrict].forEach(area => {
-                    const option = document.createElement("option");
-                    option.value = area.toLowerCase();
-                    option.textContent = area;
-                    areaSelect.appendChild(option);
-                });
-            }
-        });
+    try{
+        const res = await fetch(`/searchProducts?q=${encodeURIComponent(query)}&district=${district}&area=${area}`);
+        const data = await res.json();
 
-        // Search button click
-        document.getElementById("searchBtn").addEventListener("click", function () {
-            const district = districtSelect.options[districtSelect.selectedIndex].text;
-            const area = areaSelect.options[areaSelect.selectedIndex]?.text;
+        if(data.length===0){
+            shopsContainer.innerHTML="<p style='padding:10px'>No products found</p>";
+            return;
+        }
 
-            if (!districtSelect.value || !areaSelect.value) {
-                resultDiv.textContent = "Please select location.";
-                resultDiv.style.color = "red";
-            } else {
-                resultDiv.textContent = `selected: ${district} → ${area}`;
-                resultDiv.style.color = "green";
-            }
-        });
-    </script>
-
-    <script>
-        const categoryButtons = document.querySelectorAll(".producttypes button");
-        const shopsContainer = document.getElementById("shopsContainer");
-
-        categoryButtons.forEach(button => {
-            button.addEventListener("click", async () => {
-                const district = districtSelect.value;
-                const area = areaSelect.value;
-                const category = button.dataset.category;
-
-                // ❗ pehle validation
-                if (!district || !area) {
-                    alert("Please select district and area first");
-                    return;
-                }
-
-                // ✅ ab active (green) lagao
-                categoryButtons.forEach(btn => btn.classList.remove("active"));
-                button.classList.add("active");
-
-                const res = await fetch(
-                    `/api/shops?district=${district}&area=${area}&category=${category}`
-                );
-
-                const shops = await res.json();
-                shopsContainer.innerHTML = "";
-
-                if (shops.length === 0) {
-                    shopsContainer.innerHTML = "<p>No shops found</p>";
-                    return;
-                }
-
-         shops.forEach(shop => {
-  shopsContainer.innerHTML += `
-    <div class="card" >
-      <img src="${shop.image}" class="card-img">
-      <div class="card-content">
-        <h3>${shop.name}</h3>
-        <a href="/shop/${shop._id}">
-        <button>Visit</button>
-      </div>
-    </div>
-  `;
-                });
+        data.forEach(item=>{
+            item.shops.forEach(shop=>{
+                const card = document.createElement("div");
+                card.classList.add("card");
+                card.innerHTML = `
+                    <img src="${item.product.image || '/public/images/default.png'}" class="card-img">
+                    <div class="card-content">
+                        <h3>${item.product.name}</h3>
+                        <p>Price: ₹${item.product.price}</p>
+                        <p style="font-size:14px;color:#555;">Shop: ${shop.name} (${shop.district}, ${shop.area})</p>
+                        <a href="/shop/${shop._id}"><button>Visit Shop</button></a>
+                    </div>
+                `;
+                shopsContainer.appendChild(card);
             });
         });
-    </script>
 
+      
+        categoryButtons.forEach(btn=>btn.classList.remove("active"));
 
-
-    
-
-
-<script>
-  document.getElementById("backToShopsBtn").addEventListener("click", () => {
-    // shop products page hide
-    document.getElementById("shopProductsPage").style.display = "none";
-
-    // shops list show
-    document.getElementById("shopsContainer").style.display = "flex";
-
-    // products clear (optional)
-    document.getElementById("productsContainer").innerHTML = "";
-  });
+    } catch(err){
+        console.error(err);
+        shopsContainer.innerHTML="<p style='padding:10px'>Error fetching results</p>";
+    }
+});
 </script>
 
 </body>
-
 </html>

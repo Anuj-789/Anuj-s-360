@@ -8,7 +8,7 @@ import {
 } from '../controller/authcontroller.js';
 
 
-import { createShop, shopLogin, shopLogout , upload , shopprofilePage} from "../controller/allnewshopcontroller.js";
+import { createShop, shopLogin, shopLogout , upload , shopprofilePage, updateShop} from "../controller/allnewshopcontroller.js";
 
 
 const router = express.Router();
@@ -34,5 +34,8 @@ router.post("/shops/register", upload.single('image'), createShop);
 // for getting shopogin page
 
 router.get('/shopprofile', shopprofilePage);
+
+// Shop profile update
+router.post('/shop/update', updateShop);
 
 export default router;

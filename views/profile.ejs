@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Product Card</title>
+  <title>Anuj's-360</title>
  
   <link rel="stylesheet" href="productbox.css">
   <link rel="stylesheet" href="../public/css/allstructure/nav.css">
@@ -11,7 +11,39 @@
   <link rel="stylesheet" href="../public/css/mycart.css">
   <style>
     /* NAVBAR */
+    @media (max-width: 992px) {
 
+    .nav-center {
+        font-size: 60px;
+        margin-right: 20px;
+    }
+
+    .nav-left img {
+        height: 150px;
+    }
+
+    .nav-right img {
+        height: 100px;
+    }
+    .menu-header{
+        font-size: 45px;
+        
+        
+
+    }
+    .dropdown a{
+        font-size: 30px;
+        margin-top: 20px;
+         
+    }
+   
+ 
+}
+
+
+body{
+      background: linear-gradient(90deg, #e9fcd4, #bfdcff);
+}
     
 .navbar{
      border-bottom: 5px solid rgb(16, 12, 133);
@@ -177,9 +209,12 @@
 }
 
 @media (max-width: 768px){
-  .shop-box { width: 100%; height: auto; position: relative; top:0; border-right: none; }
+  .shop-box { width: 100%; height:auto; position: relative; top:0; border-right: none; }
   .product-area { margin-left:0; width:100%; }
 }
+
+
+
 
 
   </style>
@@ -207,6 +242,8 @@
             <a href="/aboutus">About</a>
             <a href="/service">Services</a>
             <a href="/profile"> My Profile</a>
+      
+        <a  href="/shopprofile" >Shop login</a>
            
         </div>
     </div>
@@ -318,11 +355,7 @@
     
   <% } %>
 
-    <div class="chat">
-        <a href="https://poe.com/Teamcode360">
-        <img src="https://assets.bacancytechnology.com/main-boot-5/images/chatbot/side-img-1.gif" width="130px"/>
-        </a>
-        </div>
+  
 
 
 </section>

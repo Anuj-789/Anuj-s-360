@@ -1,35 +1,77 @@
+/* Product types container */
+div.producttypes {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap; /* allow wrapping on smaller screens */
+    gap: 15px;
+    justify-content: center;
+    border-top: 2px solid rgb(68, 189, 133);
+     border-bottom: 2px solid rgb(68, 189, 133);
+    padding: 10px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    max-width: 100%;
+}
 
+/* Product type buttons */
+.producttypes button {
+    height: 45px;
+    border: 3px solid rgb(68, 189, 133);
+    border-radius: 15px;
+    font-size: 20px;
+    padding: 10px 15px;
+    cursor: pointer;
+    min-width: 20px; 
+    flex: 1 1 auto; 
+    transition: all 0.3s ease;
+}
 
-  div.producttypes{
-            margin-top: 10px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-            border: 2px solid rgb(68, 189, 133);
-            padding: 10px 10px 10px 10px;
-            border-radius: 10px;
-        }
-       .producttypes button{
-           height: 45px;
-           border: 3px solid rgb(68, 189, 133);
-           border-radius: 15px;
-           font-size: 20px;
-           padding: 10px;
-           margin-left: 20px;
-           cursor: pointer;
-           min-width: auto;
-        }
-       .producttypes button:hover {
-            background: linear-gradient(90deg, #e9fcd4, #bfdcff);
-            border-radius: 4px;
-            color: rgb(4, 4, 110);
+/* Hover effect */
+.producttypes button:hover {
+    background: linear-gradient(90deg, #e9fcd4, #bfdcff);
+    border-radius: 4px;
+    color: rgb(4, 4, 110);
+}
 
-          
-        }
+/* Active button styling */
+.producttypes button.active {
+    background-color: rgb(94, 183, 148);
+    color: #ffffff;
+    border-radius: 4px;
+}
 
-        .producttypes button.active {
-  background-color: rgb(94, 183, 148);
-  color: #ffffff;
-   border-radius: 4px;
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .producttypes {
+        gap: 15px;
+        padding: 8px;
+    }
+
+    .producttypes button {
+        font-size: 18px;
+        min-width: 100px;
+        padding: 8px 12px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .producttypes {
+        flex-direction: row; /* stack buttons vertically */
+        gap: 10px;
+        padding: 5px;
+    
+    }
+
+    .producttypes button {
+        font-size: 0.8rem;
+
+      
+        border-radius: 12px;
+        padding: 8px;
+       
+      height:auto;
+       
+       
+    }
+ 
 }

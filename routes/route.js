@@ -1,7 +1,7 @@
 import express from 'express'
 const router = express.Router();
-import { requireLogin } from '../controller/controller.js';
-import  { sendemail, getAllCartData, getservicepage , gethomepage , getaboutuspage,  getShopsApi , shopProductsPage ,  getCartData , addToCartItem, removeCartItem, updateCartItemQty ,placeOrderAndClearCart} from '../controller/controller.js'
+import { requireLogin , getsearchproducts} from '../controller/controller.js';
+import  {  sendemail, getAllCartData, getservicepage , gethomepage , getaboutuspage,  getShopsApi , shopProductsPage ,  getCartData , addToCartItem, removeCartItem, updateCartItemQty ,placeOrderAndClearCart} from '../controller/controller.js'
 
 
 router.get("/service", getservicepage);
@@ -26,6 +26,9 @@ router.get("/cart/all", requireLogin, getAllCartData);
 router.post("/send-order-email", requireLogin, sendemail);
 
 router.post("/order/place", requireLogin, placeOrderAndClearCart);
+
+
+router.get("/searchProducts", getsearchproducts);
 
 
 

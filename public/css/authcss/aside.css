@@ -95,3 +95,12 @@
 .hide-left {
   transform: translateX(-100%);
 }
+
+@media (max-width: 992px){
+  .shop-name{
+    font-size: 30px;
+  }
+  .shop-box p {
+    font-size: 25px;
+  }
+}

@@ -10,6 +10,7 @@
     position: relative;
     padding: 10px 0;
     font-size: 30px;
+  
 }
 
 /* Track for slides */
@@ -30,6 +31,7 @@
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     transition: transform 0.3s ease;
+    
 }
 
 /* Zoom on hover */
@@ -51,8 +53,8 @@
 .slide-text-left {
     margin-right: 10px;
     font-weight: bold;
-    font-size: 14px;
-    color: #333;
+    font-size: 18px;
+    color: #1859b4;
     white-space: nowrap;
 }
 
@@ -66,26 +68,11 @@
 }
 
 
-.product-intro {
-    text-align: center;
-    padding: 40px 20px;
-    background: #ffffff;
-    font-family: Arial, sans-serif;
-}
 
-.product-intro h2 {
-    
-    color: #1e3d59;
-    margin-bottom: 10px;
-}
 
-.product-intro p {
-    font-size: 16px;
-    color: #333;
-    max-width: 700px;
-    margin: 0 auto;
-    line-height: 1.5;
-}
+
+
+
 
 
 /* ===== Infinite sliding animation ===== */
