@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Anuj's-360</title>
   <link rel="stylesheet" href="../public/css/allstructure/nav.css">
   <link rel="stylesheet" href="../public/css/productbox.css">
@@ -11,20 +12,16 @@
   <style>
     /* NAVBAR */
 .navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 200px;
-  z-index: 1000;
-  transition: transform 0.3s ease;
-  border-bottom: 3px solid rgb(2, 2, 79);
-}
+       border-bottom: 3px solid rgb(15, 12, 158);
+     position: fixed;   /* navbar scroll par bhi upar rahega */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    }
 
 /* MAIN CONTAINER */
-.main-container {
-  display: flex;
-  margin-top: 220px; /* navbar height */
-}
+
 
 /* LEFT SHOP BOX */
 
@@ -51,7 +48,7 @@
     </div>
 
     <div class="nav-center">
-        <marquee direction="up" behavior="slide">Choose your's </marquee>
+        <marquee direction="up" behavior="slide">your's shop </marquee>
     </div>
 
     <div class="nav-right"  onclick="openCart('<%= shop._id %>', '<%= shop.name %>')" style="cursor:pointer;">
@@ -157,7 +154,7 @@
 
 <div id="cartPanel" class="cart-panel">
   <div class="cart-header">
-    <button class="back-btn" onclick="closeCart()">⬅ Back</button>
+    
     <h3>Your Cart 🛒</h3>
   </div>
 
@@ -310,7 +307,7 @@ function renderCart(cart, shopName) {
 
   html += `<h3>Total: ₹${total}</h3>`;
 
-  html += `<button 
+  html += `<button class ="buynowbotton"
     style="width:100%;padding:12px;background:blue;color:white;border:none;border-radius:8px;margin-top:10px;"
     onclick="showPaymentOptions()">
     Buy Now 🛒

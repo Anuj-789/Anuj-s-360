@@ -1,9 +1,9 @@
 /* ===== LEFT SIDEBAR ===== */
 .shop-box {
-  width: 20%;
-  height: calc(100vh - 220px); /* assuming navbar height 220px */
+    width: 20%;
+  height: calc(100vh - 130px); /* keep the same */
   position: fixed;
-  top: 200px; /* navbar height */
+  top: 160px; /* navbar height */
   left: 0;
   background-color: #f7f4f4;
   padding: 20px;
@@ -15,16 +15,24 @@
   align-items: center;
   gap: 15px;
   transition: transform 0.3s ease;
-  overflow: hidden;
+  /* Allow scroll when content overflows */
+  overflow-y: auto;   /* changed from hidden */
+  overflow-x: hidden;
+}
+
+.nav-center .shop-img{
+  display: none;
+  border-bottom: none;
 }
 
 /* USER IMAGE */
 .shop-img {
-  width: 100px;
-  height: 100px;
+  width: 170px;
+  height: 180px;
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid rgb(8, 106, 41);
+ 
 }
 
 /* USER NAME */
@@ -80,6 +88,7 @@
 .shop-fav {
   background-color: #e74c3c;
   color: white;
+  width: auto;
 }
 
 .shop-fav:hover {
@@ -95,12 +104,69 @@
 .hide-left {
   transform: translateX(-100%);
 }
+@media (max-width: 600px) {
 
-@media (max-width: 992px){
-  .shop-name{
-    font-size: 30px;
+  /* Make the sidebar scrollable but keep layout aligned */
+  .shop-box {
+    width: 100%;
+    position: relative; /* scrolls with content */
+    height: auto;
+    top: 0; /* remove top offset, it's no longer fixed */
+    left: 0;
+    padding: 15px;
+    border: none;
+    border-bottom: 2px solid blue;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #e9fcd4, #bfdcff);
+
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    column-gap: 5px;
+    row-gap: 4px;
+
+    /* ensure content flows correctly in main container */
+    margin-top: 10px;
   }
+
+  /* Image on left */
+  .shop-img {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+  }
+
+  /* Name below image */
+  .shop-name {
+    grid-column: 1;
+    grid-row: 3;
+    font-size: 1rem;
+    text-align: center;
+    margin: 0;
+  }
+
+  /* Details on right side */
   .shop-box p {
-    font-size: 25px;
+    grid-column: 2;
+    font-size: 14px;
+    margin: 2px 0; /* small gap between lines */
+    line-height: 1.3;
+    text-align: left;
   }
+
+  /* Action buttons align right */
+  .shop-actions {
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start; /* align buttons to left of right column */
+    margin-top: 5px;
+  }
+
+  /* Optional: make main container stack vertically */
+  
+ 
+
 }

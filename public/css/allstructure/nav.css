@@ -25,6 +25,7 @@ img {
     justify-content: space-between;
     padding: 15px 30px;
     border-top: 5px solid rgb(16, 12, 133);
+    
     border-radius: 20px;
     flex-wrap: wrap;
 }
@@ -106,25 +107,6 @@ img {
 
 /* ================= RESPONSIVE ================= */
 
-@media (max-width: 992px) {
-
-    .nav-center {
-        font-size: 40px;
-        margin-right: 20px;
-    }
-
-    .nav-left img {
-        height: 150px;
-    }
-
-    .nav-right img {
-        height: 100px;
-    }
-
-  
-    
-   
-}
 
 @media (max-width: 600px) {
 

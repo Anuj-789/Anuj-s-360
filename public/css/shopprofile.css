@@ -1,0 +1,182 @@
+
+.shop-updated {
+  font-size: 12px;
+  color: #555;
+  margin-top: 15px;
+
+  
+}
+.shop-fav{
+  margin-bottom: 20px;
+}
+
+.shop-desc {
+  font-size: 14px;
+  color: #555;
+  margin: 15px;
+}
+
+.shop-cart {
+  flex: 1;
+  padding: 10px;
+  background: rgb(14, 110, 14);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  min-width: max-content;
+}
+
+
+.shop-rating{
+    margin: 8px 0px 10px 0px;
+}
+
+
+
+
+/* HIDE ON SCROLL */
+.hide {
+  transform: translateY(-100%);
+}
+
+.hide-left {
+  transform: translateX(-100%);
+}
+
+
+
+ .chat{
+      
+        position: fixed;
+        bottom: 8%;
+        left:92%;
+     
+     }
+
+     .shop-info-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.welcome-btn {
+  margin: 10px;
+}
+.welcome-btn:hover {
+   background: #c3edd4; 
+   color: #111;  /* darker green */
+  transform: scale(1.05); /* slight zoom */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+
+
+@media (max-width: 600px){
+
+.main-container {
+ 
+  top: 100px; /* navbar height */
+}
+.nav-center .shop-img{
+  display:flex;
+  border-radius: 15px;
+  width: 100%;
+  
+}
+#shopBox .shop-img{
+display: flex;
+}
+.nav-center{
+  border: none;
+}
+
+.nav-center .shopnam{
+  display:none;
+}
+
+/* SIDEBAR CARD */
+#shopBox{
+  width:100%;
+  position:relative;
+  height:auto;
+  top:0;
+  left:0;
+
+  padding:15px;
+  border:none;
+  border-bottom:2px solid blue;
+  border-radius:4px;
+
+  background:linear-gradient(90deg,#e9fcd4,#bfdcff);
+
+  display:grid;
+  grid-template-columns:1fr;
+  row-gap:5px;
+
+  margin-top:10px;
+}
+
+/* IMAGE HIDE */
+#shopBox .shop-img{
+  display:none;
+}
+
+#shopBox #beforeloginuserimage{
+  display:flex;
+}
+
+/* SHOP NAME */
+#shopBox .shop-name{
+  font-size:18px;
+  text-align:left;
+  font-weight:600;
+  margin-bottom:4px;
+}
+
+/* DETAILS */
+#shopBox p{
+  font-size:14px;
+  text-align:left;
+  margin:2px 0;
+  line-height:1.4;
+  color:#012180;
+}
+
+/* ACTION BUTTONS */
+#shopBox .shop-actions{
+  display:flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:8px;
+}
+
+/* BUTTON STYLE */
+#shopBox .shop-cart,
+#shopBox .shop-fav{
+  width:auto;
+  padding:7px 12px;
+  font-size:13px;
+  margin: 0%;
+}
+
+/* BOTTOM AREA */
+#shopBox .shop-bottom{
+  margin-top:0px;
+}
+
+/* MAIN CONTAINER STACK */
+.main-container{
+  flex-direction:column;
+}
+
+/* HIDE SIDEBAR ON SCROLL */
+.hide-left{
+  transform:translateX(-100%);
+}
+.welcome-btn {
+  margin: 5px;
+  padding: 10px;
+  font-size: 14px;
+}
+}

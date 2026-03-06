@@ -193,45 +193,74 @@ h4{
 /* ============================= */
 
 /* Tablet */
-@media (max-width: 992px) {
+@media (max-width: 600px) {
 
  .cart-header{
-  font-size: 35px;
+  font-size: 1.5rem;
+  gap: 5px;
  
 }
 .cart-header .back-btn{
-  font-size: 30px;
+  font-size: 1rem;
 
 }
 h4{
-  font-size: 35px;
+  font-size: 1.2rem;
 }
 p{
-  font-size: 30px;
+  font-size: 1rem;
   margin-top: 5px;
 }
-strong, h3{
-  font-size: 30px;
+ h3{
+  font-size: 1.2rem;
 }
-button{
-  font-size: 25px;
+strong{
+  font-size: 1.1rem;
 }
+.cart-panel {
 
-
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-.cart-header{
-  font-size: 25px;
-}
-
-
-}
-
-/* Small Mobile */
-@media (max-width: 480px) {
+  max-width: 80%;
 
 
 
 }
+#buynowbotton{
+  background-color: #033757;
+}
+
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+.cart-panel {
+
+  max-width: 60%;
+
+
+}
+
+ .cart-header{
+  font-size: 1.5rem;
+  gap: 5px;
+ 
+}
+.cart-header .back-btn{
+  font-size: 1rem;
+
+}
+h4,h3{
+  font-size: 1.2rem;
+}
+p{
+  font-size: 1rem;
+  margin-top: 5px;
+}
+
+strong{
+  font-size: 1.2rem;
+}
+
+
+}
+
+

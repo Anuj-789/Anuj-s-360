@@ -23,7 +23,30 @@
   font-size: 16px;
   color: #333;
 }
+/* Mobile view: 2 cards per row */
+@media (max-width: 600px) {
+  /* Cart container */
+  .cart-container,
+  #cartContainer {
+    justify-content: space-between; /* ya center bhi chalega */
+    gap: 10px;
+  }
 
+  /* Shop card */
+  .shop-card {
+    width:80%; /* 2 cards per row with gap */
+    padding: 15px;
+  }
+
+  .shop-card img {
+    height: 120px; /* thoda chhota for mobile */
+  }
+
+  .shop-card h3 {
+    font-size: 16px;
+    margin-top: 8px;
+  }
+}
 
 
 
@@ -132,4 +155,37 @@
 
 .shop-card:hover h3 {
   color: #1a3d1a;
+}
+
+
+
+@media (max-width: 600px) {
+  /* Cart container */
+  .cart-container,
+  #cartContainer {
+    justify-content: space-between; /* ya center bhi chalega */
+    gap: 20px;
+   display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-items: center;
+  }
+
+  /* Shop card */
+  .shop-card {
+      background: linear-gradient(90deg, #68e5f0, #aff7aa);
+    width:80%; /* 2 cards per row with gap */
+    padding: 15px;
+   
+  }
+
+  .shop-card img {
+    height: 120px; /* thoda chhota for mobile */
+  }
+
+  .shop-card h3 {
+    font-size:1.2rem;
+    margin-top: 8px;
+    color: #1a3d1a;
+  }
 }

@@ -105,7 +105,7 @@ margin: 30px;
 
 .team-container {
   width: 90%;
-  max-width: 900px;
+  max-width: 400px;
   margin: auto;
   display: flex;
   gap: 30px;
@@ -127,10 +127,6 @@ margin: 30px;
 .team-member h4{
 
 margin: 8px;
-}
-.team-member p{
-
-
 }
 
 .team-member img {

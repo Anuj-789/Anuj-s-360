@@ -21,6 +21,7 @@
     flex-direction: column;
     align-items: center;
     margin: 20px 50px; /* spacing between cards */
+     
    
 }
 
@@ -51,6 +52,7 @@
 .card-content h3 {
     margin: 10px 0;
     font-size: 1.5rem;
+      color: #034493;
 }
 
 /* Visit button */

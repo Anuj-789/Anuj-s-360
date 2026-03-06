@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Anuj's-360</title>
  
   <link rel="stylesheet" href="productbox.css">
@@ -10,208 +11,27 @@
   <link rel="stylesheet" href="../public/css/authcss/section.css">
   <link rel="stylesheet" href="../public/css/mycart.css">
   <style>
-    /* NAVBAR */
-    @media (max-width: 992px) {
-
-    .nav-center {
-        font-size: 60px;
-        margin-right: 20px;
-    }
-
-    .nav-left img {
-        height: 150px;
-    }
-
-    .nav-right img {
-        height: 100px;
-    }
-    .menu-header{
-        font-size: 45px;
-        
-        
-
-    }
-    .dropdown a{
-        font-size: 30px;
-        margin-top: 20px;
-         
-    }
-   
- 
-}
 
 
 body{
       background: linear-gradient(90deg, #e9fcd4, #bfdcff);
-}
-    
-.navbar{
-     border-bottom: 5px solid rgb(16, 12, 133);
-}
-  
+} 
 .navbar {
   position: fixed;
   top: 0;
-  width: 100%;
-  height: 200px;
-  z-index: 1000;
-  transition: transform 0.3s ease;
+   width: 100%;
+    z-index: 1000;
+    border-bottom: 2px solid blue;
+
 }
 
 /* MAIN CONTAINER */
 .main-container {
   display: flex;
-  margin-top: 220px; /* navbar height */
+  margin-top: 120px; /* navbar height */
 }
 
 
-/* LEFT SHOP BOX */
-.shop-box {
-  width: 20%;
-  height: calc(100vh - 220px); /* full sidebar height minus navbar */
-  position: fixed;
-  top: 200px;
-  left: 0;
-  background: #fff;
-  padding: 20px;
-  border-right: 3px solid green;
-  box-shadow: 2px 0 10px rgba(0,0,0,0.1);
-  border-radius: 15px;
-  border-bottom: 5px solid rgb(16, 12, 133);
-
-  display: flex;
-  flex-direction: column; /* stack content vertically */
-  overflow-y: auto;       /* enable vertical scrolling if content overflows */
-}
-.shop-box p{
-  text-align: left;
-}
-
-.shop-img {
-  width: 100%;
-  height: 200px;
-  border-radius: 50%;
-  object-fit: cover; /* ensures full image fits nicely */
-  margin-bottom: 10px;
-}
-
-.shop-name {
-  margin: 10px 0 5px;
-}
-
-.shop-bottom {
-   /* pushes last updated & logout to the bottom */
-  text-align: center;
-}
-.shop-updated {
-  font-size: 12px;
-  color: #555;
-  margin-top: 15px;
-
-  
-}
-.shop-fav{
-  margin-top: 20px;
-}
-
-.shop-desc {
-  font-size: 14px;
-  color: #555;
-  margin: 15px;
-}
-.shop-actions {
-  display: flex;
-  flex-direction: row;
-  margin-top: 15px;
-  margin-bottom: 15px;
- justify-content: center; 
- gap: 20%;
-}
-
-.shop-cart {
-  flex: 1;
-  padding: 10px;
-  background: rgb(14, 110, 14);
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  min-width: max-content;
-}
-
-.shop-fav {
-  width: 75px;
-  font-size: 20px;
-  border-radius: 6px;
-}
-.shop-rating{
-    margin: 8px 0px 10px 0px;
-}
-
-/* PRODUCT AREA */
-.product-area {
-  margin-left: 20%;
-  width: 80%;
-  padding: 20px;
-}
-
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 20px;
-}
-
-/* HIDE ON SCROLL */
-.hide {
-  transform: translateY(-100%);
-}
-
-.hide-left {
-  transform: translateX(-100%);
-}
-
-.auth-buttons button {
-  padding: 10px 20px;
-  margin-right: 10px;
-  background: green;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.auth-form {
-  margin-top: 30px;
-  max-width: 400px;
-}
-
- .chat{
-      
-        position: fixed;
-        bottom: 8%;
-        left:92%;
-     
-     }
-
-     .shop-info-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.welcome-btn {
-  margin: 20px;
-}
-.welcome-btn:hover {
-   background: #c3edd4; 
-   color: #111;  /* darker green */
-  transform: scale(1.05); /* slight zoom */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-@media (max-width: 768px){
-  .shop-box { width: 100%; height:auto; position: relative; top:0; border-right: none; }
-  .product-area { margin-left:0; width:100%; }
-}
 
 
 
@@ -340,9 +160,9 @@ body{
         <button class="welcome-btn">Shops near me</button>
       </a>
       
-       <button class="welcome-btn" onclick="showCart()">My Cart 🛒</button>
+       <button class="welcome-btn" onclick="showCart()">My Cart </button>
 
-        <button class="welcome-btn" onclick="showReceipts()">My Receipt 🧾</button>
+        <button class="welcome-btn" onclick="showReceipts()">My Receipt</button>
 
          </div>
 
