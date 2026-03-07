@@ -62,22 +62,22 @@
 /* Animation */
 @keyframes bgSlider {
     0% {
-        background-image: url('https://as1.ftcdn.net/v2/jpg/06/26/88/68/1000_F_626886863_YNMkw3uXVsoZULsVxRvdUrfTsT9vcMLb.jpg');
+        background-image: url('https://storage.googleapis.com/mchamp/mchamplite/quiz_home_images/vocalforlocal_banner.jpg');
         opacity: 1;
         transform: scale(1);
     }
     33% {
-        background-image: url('https://indianexpress.com/wp-content/uploads/2020/05/pm-modi-speech-3.jpg');
+        background-image: url('https://img.freepik.com/premium-vector/online-shopping-concept_118813-14014.jpg');
         opacity: 0.7;
         transform: scale(1.1);
     }
     50% {
-        background-image: url('https://tse1.mm.bing.net/th/id/OIP.GTwfwV5G3cyVJBMGvDYKiwAAAA?w=472&h=195&rs=1&pid=ImgDetMain&o=7&rm=3');
+        background-image: url('https://static.vecteezy.com/system/resources/previews/036/710/113/non_2x/online-shopping-and-e-commerce-concept-illustration-vector.jpg');
         opacity: 0.7;
         transform: scale(1.1);
     }
       66% {
-        background-image: url('https://arunachal24.in/wp-content/uploads/2023/09/vocal-for-local-780x400.jpg');
+        background-image: url('https://tse2.mm.bing.net/th/id/OIP.ZTr4UDNSkzAI4bH1lvpscgHaE8?rs=1&pid=ImgDetMain&o=7&rm=3');
         opacity: 0.7;
         transform: scale(1.1);
     }
@@ -108,13 +108,7 @@
 
 
     .content p {
-        font-size: 28px;
-        margin-right: 0;
-        text-align: center;
-        color: #1c64a2;
-      font-weight: bold;
-     margin-top: 200px;
-     animation: colorChange 5s infinite;
+      display: none;
     }
 @keyframes colorChange {
 

@@ -24,7 +24,7 @@ img {
     align-items: center;
     justify-content: space-between;
     padding: 15px 30px;
-    border-top: 5px solid rgb(16, 12, 133);
+    border-top: 10px solid rgb(16, 12, 133);
     
     border-radius: 20px;
     flex-wrap: wrap;
